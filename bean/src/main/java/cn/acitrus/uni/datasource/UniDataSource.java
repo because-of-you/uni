@@ -1,17 +1,11 @@
 package cn.acitrus.uni.datasource;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
-import com.zaxxer.hikari.metrics.dropwizard.CodahaleHealthChecker;
-import io.micrometer.core.instrument.logging.LoggingMeterRegistry;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.sql.DataSource;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -46,8 +40,6 @@ public class UniDataSource {
         uniDataSourceConfig.setUsername("root");
         uniDataSourceConfig.setPassword("wfy");
         uniDataSourceConfig.setJdbcUrl("jdbc:mysql://localhost:3306/project");
-
-        uniDataSourceConfig.setMetricRegistry(new UniDataSourceMeterRegistry());
 
         return uniDataSourceConfig;
     }
