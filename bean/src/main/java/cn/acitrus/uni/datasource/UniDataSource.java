@@ -39,7 +39,11 @@ public class UniDataSource {
 
         uniDataSourceConfig.setUsername("root");
         uniDataSourceConfig.setPassword("wfy");
-        uniDataSourceConfig.setJdbcUrl("jdbc:mysql://localhost:3306/project");
+        uniDataSourceConfig.setJdbcUrl("jdbc:mysql://localhost:3306/project" +
+                "?useUnicode=true" +
+                "&characterEncoding=UTF-8" +
+                "&autoReconnect=true" +
+                "&autoReconnectForPools=true");
 
         return uniDataSourceConfig;
     }
