@@ -1,6 +1,5 @@
-package cn.acitrus.uni.server.socket;
+package cn.acitrus.uni.socket;
 
-import io.undertow.util.CopyOnWriteMap;
 import jakarta.websocket.*;
 import jakarta.websocket.server.PathParam;
 import jakarta.websocket.server.ServerEndpoint;
@@ -8,8 +7,7 @@ import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.io.IOException;
-import java.io.UnsupportedEncodingException;
+import javax.sql.DataSource;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.Map;
@@ -42,9 +40,10 @@ public class UniWebSocket {
     }
 
     @OnMessage
-    public void onbin(byte[] messages, Session session){
+    public void onbin(byte[] messages, Session session) {
         System.out.println(messages);
     }
+
     @OnMessage
     public void onMessage(Session session, String message, @PathParam("username") String username) {
         if (message.equalsIgnoreCase("_ready_")) {

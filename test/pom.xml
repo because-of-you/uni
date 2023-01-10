@@ -15,12 +15,6 @@
     <name>test</name>
     <description>负责测试各个模块</description>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
-
     <dependencies>
         <dependency>
             <groupId>cn.acitrus.uni</groupId>
