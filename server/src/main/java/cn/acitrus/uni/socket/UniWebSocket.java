@@ -22,6 +22,9 @@ import java.util.concurrent.ConcurrentHashMap;
 public class UniWebSocket {
     Map<String, Session> sessions = new ConcurrentHashMap<>();
 
+    @Autowired
+    DataSource dataSource;
+
     @OnOpen
     public void onOpen(Session session, @PathParam("username") String username) {
         sessions.put("username", session);
