@@ -9,6 +9,11 @@ import io.micrometer.core.instrument.step.StepRegistryConfig;
 public interface UniDataSourceRegistryConfig extends StepRegistryConfig {
     UniDataSourceRegistryConfig DEFAULT = k -> null;
 
+    /**
+     * 前缀
+     *
+     * @return 字符串
+     */
     @Override
     default String prefix() {
         return "uni";
