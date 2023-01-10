@@ -10,14 +10,28 @@
     </parent>
 
     <groupId>cn.acitrus.uni</groupId>
-    <artifactId>common</artifactId>
+    <artifactId>dao</artifactId>
     <version>${revision}</version>
 
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>cn.acitrus.uni</groupId>
+            <artifactId>common</artifactId>
+            <version>${revision}</version>
         </dependency>
+
+        <!-- jdbc 数据库连接池 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-jdbc</artifactId>
+        </dependency>
+
+        <!-- mysql驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+        </dependency>
+
     </dependencies>
 
 </project>

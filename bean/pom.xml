@@ -10,13 +10,15 @@
     </parent>
 
     <groupId>cn.acitrus.uni</groupId>
-    <artifactId>common</artifactId>
+    <artifactId>bean</artifactId>
     <version>${revision}</version>
 
     <dependencies>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>cn.acitrus.uni</groupId>
+            <artifactId>service</artifactId>
+            <version>${revision}</version>
+            <scope>provided</scope>
         </dependency>
     </dependencies>
 

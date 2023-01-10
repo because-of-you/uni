@@ -1,4 +1,4 @@
-package cn.acitrus.uni.server.socket;
+package cn.acitrus.uni.socket;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
