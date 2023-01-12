@@ -2,8 +2,10 @@ package cn.acitrus.uni.dao;
 
 
 import cn.acitrus.uni.UniServerApplicationTests;
-import cn.acitrus.uni.model.User;
+import cn.acitrus.uni.entity.Neo4jAuthentication;
+import cn.acitrus.uni.mysql.Neo4jAuthenticationRepository;
 import cn.acitrus.uni.neo4j.UserRepository;
+import cn.acitrus.uni.node.User;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 class UserRepositoryTest extends UniServerApplicationTests {
     @Autowired
     UserRepository userRepository;
+    @Autowired
+    Neo4jAuthenticationRepository neo4jAuthenticationRepository;
 
     @Test
     public void addUser() {
@@ -23,6 +27,7 @@ class UserRepositoryTest extends UniServerApplicationTests {
 
     @Test
     public void listUser() {
-        log.info("展示用户 -> {}", userRepository.findAll());
+        neo4jAuthenticationRepository.save(new Neo4jAuthentication());
+        System.out.println(userRepository.findAll());
     }
 }

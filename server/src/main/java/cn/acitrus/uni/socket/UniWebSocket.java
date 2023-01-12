@@ -17,7 +17,7 @@ import java.util.concurrent.ConcurrentHashMap;
  * {@code @author:} wfy
  * {@code @date:} 2023/1/3
  **/
-@ServerEndpoint(value = "/ws")
+@ServerEndpoint(value = "/ws/{username}")
 @Component
 public class UniWebSocket {
     Map<String, Session> sessions = new ConcurrentHashMap<>();

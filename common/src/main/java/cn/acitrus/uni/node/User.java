@@ -1,13 +1,15 @@
-package cn.acitrus.uni.model;
+package cn.acitrus.uni.node;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.Data;
+import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
 import org.springframework.data.neo4j.core.schema.Node;
 import org.springframework.data.neo4j.core.schema.Property;
 
+import java.util.Date;
 import java.util.UUID;
 
 /**
@@ -23,4 +25,6 @@ public class User {
     private UUID id;
     @Property
     private String name;
+    @CreatedDate
+    private Date date;
 }

@@ -1,4 +1,4 @@
-package cn.acitrus.uni.datasource;
+package cn.acitrus.uni.datasource.mysql;
 
 import io.micrometer.core.instrument.step.StepRegistryConfig;
 
