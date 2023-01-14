@@ -1,4 +1,4 @@
-package cn.acitrus.uni.datasource;
+package cn.acitrus.uni.bean.datasource;
 
 import com.mysql.cj.jdbc.MysqlDataSource;
 import com.zaxxer.hikari.HikariConfig;
@@ -43,7 +43,7 @@ public class UniDataSource {
 
         uniDataSourceConfig.setUsername("root");
         uniDataSourceConfig.setPassword("wfy");
-        uniDataSourceConfig.setJdbcUrl("jdbc:mysql://localhost:3306/project");
+        uniDataSourceConfig.setJdbcUrl("jdbc:mysql://localhost:3306/uni");
 
         return uniDataSourceConfig;
     }
