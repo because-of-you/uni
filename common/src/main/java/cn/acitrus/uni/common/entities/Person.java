@@ -1,6 +1,6 @@
 package cn.acitrus.uni.common.entities;
 
-import cn.acitrus.uni.common.entities.base.UniEntity;
+import cn.acitrus.uni.common.entities.base.AbstractUniEntity;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.Column;
@@ -20,7 +20,7 @@ import lombok.*;
 @Entity
 @Table(name = "person", schema = "uni")
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class Person extends UniEntity {
+public class Person extends AbstractUniEntity {
     @Column
     private String name = "";
 }

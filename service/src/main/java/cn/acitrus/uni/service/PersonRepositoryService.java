@@ -4,7 +4,7 @@ import cn.acitrus.uni.common.entities.Person;
 import cn.acitrus.uni.common.nodes.Node;
 import cn.acitrus.uni.repository.NodeRepository;
 import cn.acitrus.uni.repository.PersonRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -14,14 +14,15 @@ import org.springframework.transaction.annotation.Transactional;
  **/
 @Service
 public class PersonRepositoryService {
-    @Autowired
+    @Resource
     PersonRepository personRepository;
-    @Autowired
+    @Resource
     NodeRepository nodeRepository;
 
     @Transactional(timeout = 10, rollbackFor = {Exception.class})
     public void test() {
         personRepository.save(new Person());
+        nodeRepository.deleteAll();
         nodeRepository.save(new Node());
     }
 }

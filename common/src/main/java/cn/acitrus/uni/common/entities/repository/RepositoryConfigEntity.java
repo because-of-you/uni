@@ -1,6 +1,6 @@
 package cn.acitrus.uni.common.entities.repository;
 
-import cn.acitrus.uni.common.entities.base.UniEntity;
+import cn.acitrus.uni.common.entities.base.AbstractUniEntity;
 import cn.acitrus.uni.common.enums.repository.RepositoryType;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
@@ -19,7 +19,7 @@ import lombok.*;
 @Entity
 @Table
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class RepositoryConfigEntity extends UniEntity {
+public class RepositoryConfigEntity extends AbstractUniEntity {
     @Column
     private String host;
     @Column
