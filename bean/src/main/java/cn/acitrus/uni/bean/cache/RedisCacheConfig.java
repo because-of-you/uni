@@ -1,4 +1,4 @@
-package cn.acitrus.uni.bean.datasource;
+package cn.acitrus.uni.bean.cache;
 
 import cn.acitrus.uni.common.entities.RepositoryConfigEntity;
 import cn.acitrus.uni.common.entities.enums.RepositoryType;
@@ -13,7 +13,6 @@ import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.TimeUnit;
@@ -24,7 +23,7 @@ import java.util.concurrent.TimeUnit;
  **/
 @Configuration
 @EnableCaching
-public class RedisConfig {
+public class RedisCacheConfig {
     @Bean(destroyMethod = "shutdown")
     protected RedissonClient redisson(
             RepositoryConfigEntityRepository repository
