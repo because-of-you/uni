@@ -1,8 +1,8 @@
 package cn.acitrus.uni.repository;
 
 import cn.acitrus.uni.common.entities.Person;
-import cn.acitrus.uni.common.entities.RepositoryConfigEntity;
-import cn.acitrus.uni.common.entities.enums.RepositoryType;
+import cn.acitrus.uni.common.entities.repository.RepositoryConfigEntity;
+import cn.acitrus.uni.common.enums.repository.RepositoryType;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 

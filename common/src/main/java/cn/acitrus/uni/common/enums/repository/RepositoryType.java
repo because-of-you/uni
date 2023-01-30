@@ -1,4 +1,4 @@
-package cn.acitrus.uni.common.entities.enums;
+package cn.acitrus.uni.common.enums.repository;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

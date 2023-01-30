@@ -1,7 +1,7 @@
-package cn.acitrus.uni.common.entities;
+package cn.acitrus.uni.common.entities.repository;
 
 import cn.acitrus.uni.common.entities.base.UniEntity;
-import cn.acitrus.uni.common.entities.enums.RepositoryType;
+import cn.acitrus.uni.common.enums.repository.RepositoryType;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.*;
