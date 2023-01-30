@@ -2,8 +2,8 @@ package cn.acitrus.uni.service;
 
 import cn.acitrus.uni.common.entities.Person;
 import cn.acitrus.uni.common.nodes.Node;
-import cn.acitrus.uni.repository.NodeRepository;
-import cn.acitrus.uni.repository.PersonRepository;
+import cn.acitrus.uni.repository.nodes.NodeRepository;
+import cn.acitrus.uni.repository.entities.PersonRepository;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -21,8 +21,13 @@ public class PersonRepositoryService {
 
     @Transactional(timeout = 10, rollbackFor = {Exception.class})
     public void test() {
-        personRepository.save(new Person());
+        Person person = new Person();
+        personRepository.deleteAll();
+        personRepository.save(person);
+
         nodeRepository.deleteAll();
-        nodeRepository.save(new Node());
+        Node node = new Node();
+        nodeRepository.save(node);
+        System.out.println(node);
     }
 }

@@ -1,4 +1,4 @@
-package cn.acitrus.uni.repository;
+package cn.acitrus.uni.repository.nodes;
 
 import cn.acitrus.uni.common.nodes.Node;
 import org.springframework.data.neo4j.repository.Neo4jRepository;
