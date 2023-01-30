@@ -18,6 +18,6 @@ public interface PersonRepository extends JpaRepository<Person, UUID>, JpaSpecif
     List<Person> findAllByCreateByIsNotNullAndCreateByEqualsOrCreateByLike(String createBy, String like);
 
     @Query("select u from #{#entityName} u where u.createBy=?#{[0]}")
-    @Cacheable(value = "test", key = "#createBy")
+    @Cacheable(value = "uni:cache:permissions", key = "#createBy")
     List<Person> costumList(String createBy);
 }
