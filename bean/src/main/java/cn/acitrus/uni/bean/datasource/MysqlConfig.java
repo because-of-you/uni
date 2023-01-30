@@ -1,15 +1,11 @@
 package cn.acitrus.uni.bean.datasource;
 
-import com.mysql.cj.jdbc.MysqlDataSource;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import javax.sql.DataSource;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -17,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  * {@code @date:} 2023/1/10
  **/
 @Configuration
-public class UniDataSource {
+public class MysqlConfig {
     @Bean(name = {"hikariConfig"})
     protected HikariConfig hikariConfig() {
         HikariConfig uniDataSourceConfig = new HikariConfig();
@@ -43,7 +39,11 @@ public class UniDataSource {
 
         uniDataSourceConfig.setUsername("root");
         uniDataSourceConfig.setPassword("wfy");
-        uniDataSourceConfig.setJdbcUrl("jdbc:mysql://localhost:3306/uni");
+        uniDataSourceConfig.setJdbcUrl("jdbc:mysql://localhost:3306/uni" +
+                "?useUnicode=true" +
+                "&characterEncoding=UTF-8" +
+                "&autoReconnect=true" +
+                "&autoReconnectForPools=true");
 
         return uniDataSourceConfig;
     }
