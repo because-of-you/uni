@@ -49,5 +49,5 @@ public abstract class AbstractUniEntity extends AbstractUniSimpleEntity {
 
     @Version
     @Column
-    public Long version;
+    public Integer version;
 }

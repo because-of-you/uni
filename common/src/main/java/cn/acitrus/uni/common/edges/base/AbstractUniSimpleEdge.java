@@ -1,12 +1,15 @@
-package cn.acitrus.uni.common.nodes.base;
+package cn.acitrus.uni.common.edges.base;
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import lombok.experimental.SuperBuilder;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
-import org.springframework.data.neo4j.core.schema.Node;
+import org.springframework.data.neo4j.core.schema.Relationship;
+import org.springframework.data.neo4j.core.schema.RelationshipId;
+import org.springframework.data.neo4j.core.schema.RelationshipProperties;
 
 import java.io.Serializable;
 import java.util.UUID;
@@ -15,16 +18,14 @@ import java.util.UUID;
  * {@code @author:} wfy
  * {@code @date:} 2023/1/30
  **/
-@Node
-@Setter
-@Getter
-@NoArgsConstructor
+@Data
 @AllArgsConstructor
-@ToString
 @SuperBuilder
+@NoArgsConstructor
+@RelationshipProperties
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public abstract class AbstractUniSimpleNode implements Serializable {
-    @Id
+public  abstract class AbstractUniSimpleEdge implements Serializable {
+    @RelationshipId
     @GeneratedValue(generatorClass = GeneratedValue.UUIDGenerator.class)
     private UUID id;
 }
