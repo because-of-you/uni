@@ -6,15 +6,17 @@ import cn.acitrus.uni.repository.RepositoryConfigEntityRepository;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
+import org.redisson.spring.cache.CacheConfig;
 import org.redisson.spring.cache.RedissonSpringCacheManager;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.TimeUnit;
 
 /**
  * {@code @author:} wfy
@@ -42,6 +44,13 @@ public class RedisConfig {
     protected CacheManager cacheManager(
             RedissonClient redissonClient
     ) {
-        return new RedissonSpringCacheManager(redissonClient);
+        Map<String, CacheConfig> config = new ConcurrentHashMap<>(4);
+        CacheConfig permissions = new CacheConfig();
+        permissions.setMaxSize(100);
+        permissions.setTTL(TimeUnit.MINUTES.toMillis(3));
+        permissions.setMaxIdleTime(TimeUnit.MINUTES.toMillis(1));
+
+        config.put("uni:cache:permissions", permissions);
+        return new RedissonSpringCacheManager(redissonClient, config);
     }
 }
