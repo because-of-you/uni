@@ -1,16 +1,13 @@
 package cn.acitrus.uni.bean.datasource;
 
-import cn.acitrus.uni.common.entities.RepositoryConfigEntity;
-import cn.acitrus.uni.common.entities.enums.RepositoryType;
+import cn.acitrus.uni.common.entities.repository.RepositoryConfigEntity;
+import cn.acitrus.uni.common.enums.repository.RepositoryType;
 import cn.acitrus.uni.repository.RepositoryConfigEntityRepository;
 import lombok.SneakyThrows;
-import org.neo4j.driver.Driver;
 import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Primary;
-import org.springframework.data.neo4j.core.ReactiveDatabaseSelectionProvider;
-import org.springframework.data.neo4j.core.transaction.ReactiveNeo4jTransactionManager;
 
 import java.net.URI;
 

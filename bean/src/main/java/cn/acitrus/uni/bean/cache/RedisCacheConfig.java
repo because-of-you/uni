@@ -1,7 +1,7 @@
 package cn.acitrus.uni.bean.cache;
 
-import cn.acitrus.uni.common.entities.RepositoryConfigEntity;
-import cn.acitrus.uni.common.entities.enums.RepositoryType;
+import cn.acitrus.uni.common.entities.repository.RepositoryConfigEntity;
+import cn.acitrus.uni.common.enums.repository.RepositoryType;
 import cn.acitrus.uni.repository.RepositoryConfigEntityRepository;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
