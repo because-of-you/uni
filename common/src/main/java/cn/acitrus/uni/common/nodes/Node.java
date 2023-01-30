@@ -1,7 +1,8 @@
 package cn.acitrus.uni.common.nodes;
 
-import org.springframework.data.neo4j.core.schema.GeneratedValue;
-import org.springframework.data.neo4j.core.schema.Id;
+import cn.acitrus.uni.common.nodes.base.AbstractUniNode;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
 import org.springframework.data.neo4j.core.schema.Property;
 
 /**
@@ -9,10 +10,9 @@ import org.springframework.data.neo4j.core.schema.Property;
  * {@code @date:} 2023/1/14
  **/
 @org.springframework.data.neo4j.core.schema.Node
-public class Node {
-    @Id
-    @GeneratedValue
-    private Long id;
+@Data
+@EqualsAndHashCode(callSuper = true)
+public class Node extends AbstractUniNode {
     @Property
     private String name;
 }

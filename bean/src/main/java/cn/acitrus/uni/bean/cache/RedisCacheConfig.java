@@ -30,11 +30,19 @@ public class RedisCacheConfig {
     ) {
         RepositoryConfigEntity redis = repository.getRepositoryConfigEntityByRepositoryTypeEquals(RepositoryType.REDIS);
 
+        int processors = Runtime.getRuntime().availableProcessors();
         Config config = new Config();
-        config.useSingleServer()
+        config
+                .setThreads(processors * 2)
+                .useSingleServer()
                 .setAddress(redis.getHost())
                 .setUsername(redis.getUsername())
                 .setPassword(redis.getPassword())
+                .setConnectionPoolSize(64)
+                .setConnectionMinimumIdleSize(processors + 1)
+                .setClientName("uni-redis")
+                .setIdleConnectionTimeout((int) TimeUnit.SECONDS.toMillis(3))
+                .setConnectTimeout((int) TimeUnit.SECONDS.toMillis(3))
         ;
         return Redisson.create(config);
     }

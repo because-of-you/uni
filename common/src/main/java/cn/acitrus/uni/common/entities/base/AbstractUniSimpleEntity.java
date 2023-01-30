@@ -26,7 +26,7 @@ import java.util.UUID;
 @ToString
 @MappedSuperclass
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-public class BaseUniEntity implements Serializable {
+public abstract class AbstractUniSimpleEntity implements Serializable {
     @Id
     @GeneratedValue(generator = "uni_uuid_generator")
     @GenericGenerator(name = "uni_uuid_generator", strategy = "cn.acitrus.uni.common.entities.base.UniIdGenerator")
