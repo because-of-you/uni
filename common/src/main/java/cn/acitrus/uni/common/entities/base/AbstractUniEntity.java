@@ -8,6 +8,7 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Version;
 import lombok.*;
+import org.hibernate.annotations.Comment;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
@@ -32,22 +33,27 @@ public abstract class AbstractUniEntity extends AbstractUniSimpleEntity {
     @CreatedDate
     @Column(updatable = false, nullable = false)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Shanghai")
+    @Comment("创建时间")
     public Date createdDate;
 
     @CreatedBy
-    @Column
+    @Column(updatable = false, nullable = false)
+    @Comment("创建人")
     public String createBy;
 
     @LastModifiedDate
     @Column(nullable = false)
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "Asia/Shanghai")
+    @Comment("最新修改时间")
     public Date lastModifiedDate;
 
     @LastModifiedBy
-    @Column
+    @Column(nullable = false)
+    @Comment("最新修改人")
     public String lastModifiedBy;
 
     @Version
-    @Column
+    @Column(nullable = false)
+    @Comment("版本号")
     public Integer version;
 }

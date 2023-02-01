@@ -52,6 +52,12 @@
             <artifactId>ulid-creator</artifactId>
             <version>${ulid.version}</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-security</artifactId>
+            <scope>provided</scope>
+        </dependency>
     </dependencies>
 
 </project>

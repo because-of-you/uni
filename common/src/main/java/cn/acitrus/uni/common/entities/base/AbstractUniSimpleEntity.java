@@ -31,7 +31,7 @@ public abstract class AbstractUniSimpleEntity implements Serializable {
     @GeneratedValue(generator = "uni_uuid_generator")
     @GenericGenerator(name = "uni_uuid_generator", strategy = "cn.acitrus.uni.common.entities.base.UniIdGenerator")
     @Column(name = "id", nullable = false, updatable = false, length = 16)
-    @Comment("主键id")
+    @Comment("uni-自增主键id")
     @JdbcTypeCode(SqlTypes.BINARY)
     private UUID id;
 }

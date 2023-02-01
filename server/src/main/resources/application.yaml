@@ -22,3 +22,16 @@ spring:
 #    authentication:
 #      password: cglnZ25hsEMiI6_NXcbwMN5ZzALTcoMpkk2K5uhZ1Yw
 #      username: neo4j
+
+logging:
+  level:
+    org:
+      neo4j:
+        ogm:
+          drivers:
+            bolt:
+              request:
+                BoltRequest: DEBUG
+      springframework:
+        data:
+          neo4j: debug
