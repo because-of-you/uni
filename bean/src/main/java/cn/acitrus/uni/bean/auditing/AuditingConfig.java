@@ -2,7 +2,6 @@ package cn.acitrus.uni.bean.auditing;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.domain.AuditorAware;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 import org.springframework.data.neo4j.config.EnableNeo4jAuditing;
 
@@ -13,9 +12,9 @@ import org.springframework.data.neo4j.config.EnableNeo4jAuditing;
 @Configuration
 @EnableJpaAuditing
 @EnableNeo4jAuditing
-public class UniAuditingConfig {
+public class AuditingConfig {
     @Bean
-    public AuditorAware<String> auditorProvider() {
-        return new UniAuditorAware();
+    public org.springframework.data.domain.AuditorAware<String> auditorProvider() {
+        return new AuditorAware();
     }
 }
