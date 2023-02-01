@@ -19,7 +19,7 @@ import java.util.UUID;
 public interface PersonRepository extends JpaRepository<Person, UUID>, JpaSpecificationExecutor<Person> {
     List<Person> findAllByCreateByIsNotNullAndCreateByEqualsOrCreateByLike(String createBy, String like);
 
-    @Query("select u from #{#entityName} u where u.createBy=?#{[0]}")
+    @Query("select u from #{#entityName} u where u.createBy = :#{#createBy}")
     @Cacheable(value = "uni:cache:permissions", key = "#createBy")
-    List<Person> costumList(String createBy);
+    List<Person> costumList(@Param("createBy") String createBy);
 }

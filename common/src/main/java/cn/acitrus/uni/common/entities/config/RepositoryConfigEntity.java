@@ -1,4 +1,4 @@
-package cn.acitrus.uni.common.entities.repository;
+package cn.acitrus.uni.common.entities.config;
 
 import cn.acitrus.uni.common.entities.base.AbstractUniEntity;
 import cn.acitrus.uni.common.enums.repository.RepositoryType;

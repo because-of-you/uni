@@ -5,6 +5,7 @@ import cn.acitrus.uni.common.nodes.Node;
 import cn.acitrus.uni.repository.nodes.NodeRepository;
 import cn.acitrus.uni.repository.entities.PersonRepository;
 import jakarta.annotation.Resource;
+import org.neo4j.cypherdsl.core.Statement;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -24,7 +25,6 @@ public class PersonRepositoryService {
         Person person = new Person();
         personRepository.deleteAll();
         personRepository.save(person);
-
         nodeRepository.deleteAll();
         Node node = new Node();
         nodeRepository.save(node);
