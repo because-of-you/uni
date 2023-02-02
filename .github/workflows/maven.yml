@@ -6,27 +6,41 @@
 # separate terms of service, privacy policy, and support
 # documentation.
 
-name: Java CI with Maven
+name: uni project build
 
 on:
   push:
     branches: [ "main" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ ]
+  # 每月 的 一号 凌晨 调度运行
+  schedule:
+    - cron: '0 0 */1 * *'
 
 jobs:
-  build:
 
+  uni-build-job:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
+      # 拉取main分支最新的项目代码
+      - name: git check out main branches
+        uses: actions/checkout@v3
+        with:
+          ref: main
+
+      # 展示当前目录结构
+      - name: run shell
+        run: ls -al
+
       - name: Set up JDK 17
         uses: actions/setup-java@v3
         with:
           java-version: '17'
           distribution: 'temurin'
           cache: maven
+
+
       - name: Build with Maven
         run: mvn clean -DskipTests=true package
 
