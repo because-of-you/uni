@@ -33,13 +33,13 @@ public class RedisCacheConfig {
         int processors = Runtime.getRuntime().availableProcessors();
         Config config = new Config();
         config
-                .setThreads(processors * 2)
+                .setThreads(processors * 2 + 1)
                 .useSingleServer()
                 .setAddress(redis.getHost())
                 .setUsername(redis.getUsername())
                 .setPassword(redis.getPassword())
                 .setConnectionPoolSize(64)
-                .setConnectionMinimumIdleSize(processors + 1)
+                .setConnectionMinimumIdleSize(processors)
                 .setClientName("uni-redis")
                 .setIdleConnectionTimeout((int) TimeUnit.SECONDS.toMillis(3))
                 .setConnectTimeout((int) TimeUnit.SECONDS.toMillis(3))
