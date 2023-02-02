@@ -26,7 +26,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      -
       # 拉取main分支最新的项目代码
       - name: git check out main branches
         uses: actions/checkout@v3
