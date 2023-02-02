@@ -7,10 +7,13 @@
 # documentation.
 
 name: uni project build
+description: "uni项目一体式构建方案"
 
 on:
   push:
     branches: [ "main" ]
+    tags:
+      - "v*.*.*"
   pull_request:
     branches: [ ]
   # 每月 的 一号 凌晨 调度运行
@@ -23,14 +26,16 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      -
       # 拉取main分支最新的项目代码
       - name: git check out main branches
         uses: actions/checkout@v3
         with:
           ref: main
 
-      # 展示当前目录结构
+      # ------------------------------------------- java 构建管理模块 ----------------------------------------------------
       - name: run shell
+        description: "展示当前目录结构"
         run: ls -al
 
       - name: Set up JDK 17
@@ -44,3 +49,39 @@ jobs:
       - name: Build with Maven
         run: mvn clean -DskipTests=true package
 
+      # ------------------------------------------- java 构建管理模块 ----------------------------------------------------
+
+
+      # -------------------------------------------docker 镜像管理模块----------------------------------------------------
+      # 该模块GitHub参考文档是https://github.com/docker/metadata-action#basic
+      # 该模块docker官方参考文档是https://docs.docker.com/build/ci/github-actions/examples/#manage-tags-and-labels
+      - name: docker meta manager service
+        description: "加载docker镜像元数据管理服务"
+        id: meta
+        uses: docker/metadata-action@v4
+        with:
+          images: wfy-belief/uni
+
+      - name: docker login service
+        description: "加载docker登陆服务"
+        uses: docker/login-action@v2
+        if: github.event_name != 'pull_request'
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: docker build x service
+        description: "加载docker 多平台镜像构建服务"
+        uses: docker/setup-buildx-action@v2
+
+      - name: docker build and push service
+        description: "构建和推送最新的镜像"
+        uses: docker/build-push-action@v4
+        with:
+          context: .
+          file: ./Dockerfile
+          push: ${{ github.event_name != 'pull_request' }}
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      # -------------------------------------------docker 镜像管理模块----------------------------------------------------
