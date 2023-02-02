@@ -2,10 +2,9 @@ package cn.acitrus.uni.service;
 
 import cn.acitrus.uni.common.entities.Person;
 import cn.acitrus.uni.common.nodes.Node;
-import cn.acitrus.uni.repository.nodes.NodeRepository;
 import cn.acitrus.uni.repository.entities.PersonRepository;
+import cn.acitrus.uni.repository.nodes.NodeRepository;
 import jakarta.annotation.Resource;
-import org.neo4j.cypherdsl.core.Statement;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
