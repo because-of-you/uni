@@ -8,6 +8,7 @@ WORKDIR /opt/component/
 
 # 复制其他文件
 ADD ../../server/target/server-exec.jar ./server.jar
+ADD ./* ./
 
 # 权限
 RUN chmod +x ./entrypoint.sh
