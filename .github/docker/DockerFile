@@ -7,8 +7,8 @@ ENV TZ=Asia/Shanghai
 WORKDIR /opt/component/
 
 # 复制其他文件
-ADD ../../server/target/server-exec.jar ./server.jar
-ADD ./* ./
+ADD server/target/server-exec.jar ./server.jar
+ADD .github/docker/* ./
 
 # 权限
 RUN chmod +x ./entrypoint.sh
