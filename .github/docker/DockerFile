@@ -1,0 +1,20 @@
+FROM openjdk:17 as java
+
+# 时区
+ENV TZ=Asia/Shanghai
+
+# 工作目录
+WORKDIR /opt/component/
+
+# 复制其他文件
+ADD ../../server/target/server-exec.jar ./server.jar
+
+# 权限
+RUN chmod +x ./entrypoint.sh
+
+# 运行
+ENTRYPOINT ["./entrypoint.sh"]
+CMD [""]
+
+
+
