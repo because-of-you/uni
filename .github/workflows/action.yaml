@@ -17,8 +17,8 @@ on:
   pull_request:
     branches: [ ]
   # 每月 的 一号 凌晨 调度运行
-  schedule:
-    - cron: '0 0 */1 * *'
+  #  schedule:
+  #    - cron: '0 0 */1 * *'
 
 jobs:
 
