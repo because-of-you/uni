@@ -1,3 +1,3 @@
 #!/bin/bash
-./builder
+#./builder
 java -jar server.jar
