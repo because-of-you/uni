@@ -69,6 +69,7 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+          registry: registry.cn-hangzhou.aliyuncs.com
 
       # docker 镜像管理模块 ------> 加载docker 多平台镜像构建服务
       - name: docker build x service
