@@ -35,7 +35,7 @@ jobs:
       # ------------------------------------------- java 构建管理模块 ----------------------------------------------------
       #
       - name: run shell
-        run: echo ${{ secrets.DOCKERHUB_USERNAME }}
+        run: export ${{ secrets.DOCKERHUB_USERNAME }} = 2 && echo ${{ secrets.DOCKERHUB_USERNAME }}
 
       - name: Set up JDK 17
         uses: actions/setup-java@v3
