@@ -26,13 +26,13 @@ public class MysqlConfig {
     @JsonSetter(nulls = Nulls.SKIP)
     private String url;
     @JsonSetter(nulls = Nulls.SKIP)
-    private String host = System.getenv("DATASOURCE_HOST").trim();
+    private String host = System.getenv("DATASOURCE_HOST");
     @JsonSetter(nulls = Nulls.SKIP)
-    private String port = System.getenv("DATASOURCE_PORT").trim();
+    private String port = System.getenv("DATASOURCE_PORT");
     @JsonSetter(nulls = Nulls.SKIP)
-    private String username = System.getenv("DATASOURCE_USER").trim();
+    private String username = System.getenv("DATASOURCE_USER");
     @JsonSetter(nulls = Nulls.SKIP)
-    private String password = System.getenv("DATASOURCE_PASSWORD").trim();
+    private String password = System.getenv("DATASOURCE_PASSWORD");
 
     @Bean(name = {"hikariConfig"})
     protected HikariConfig hikariConfig() {
