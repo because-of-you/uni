@@ -1,0 +1,16 @@
+version: "3.9"
+services:
+  uni:
+    # 默认不构建镜像
+    #    build:
+    #      dockerfile: DockerFile
+    image: registry.cn-hangzhou.aliyuncs.com/acitrus/uni
+    pull_policy: always
+    deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
+#      rollback_config:
+#        parallelism:

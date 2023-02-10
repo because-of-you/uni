@@ -2,7 +2,9 @@ package cn.acitrus.uni.bean.datasource;
 
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,7 +15,12 @@ import java.util.concurrent.TimeUnit;
  * {@code @date:} 2023/1/10
  **/
 @Configuration
+@ConfigurationProperties(prefix = "spring.datasource")
+@Data
 public class MysqlConfig {
+    private String url;
+    private String username;
+    private String password;
     @Bean(name = {"hikariConfig"})
     protected HikariConfig hikariConfig() {
         HikariConfig uniDataSourceConfig = new HikariConfig();
@@ -32,7 +39,7 @@ public class MysqlConfig {
 
         // 池中维护的最小最大空闲连接数
         uniDataSourceConfig.setMinimumIdle(3);
-        uniDataSourceConfig.setMaximumPoolSize(10);
+        uniDataSourceConfig.setMaximumPoolSize(100);
 
         // 连接池的用户定义名称，主要出现在日志记录和JMX管理控制台中以识别池和池配置
         uniDataSourceConfig.setPoolName("uni-data-source-thread");
