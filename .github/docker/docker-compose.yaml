@@ -6,6 +6,8 @@ services:
     #      dockerfile: DockerFile
     image: registry.cn-hangzhou.aliyuncs.com/acitrus/uni
     pull_policy: always
+    env_file:
+      - .env
     deploy:
       restart_policy:
         condition: on-failure

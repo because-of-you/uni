@@ -1,9 +1,12 @@
 package cn.acitrus.uni.bean.datasource;
 
+import com.fasterxml.jackson.annotation.JsonSetter;
+import com.fasterxml.jackson.annotation.Nulls;
 import com.mysql.cj.util.StringUtils;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.Data;
+import lombok.Setter;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -19,10 +22,15 @@ import java.util.concurrent.TimeUnit;
 @ConfigurationProperties(prefix = "spring.datasource")
 @Data
 public class MysqlConfig {
+    @JsonSetter(nulls = Nulls.SKIP)
     private String url;
+    @JsonSetter(nulls = Nulls.SKIP)
     private String host = System.getenv("DATASOURCE_HOST");
+    @JsonSetter(nulls = Nulls.SKIP)
     private String port = System.getenv("DATASOURCE_PORT");
+    @JsonSetter(nulls = Nulls.SKIP)
     private String username = System.getenv("DATASOURCE_USER");
+    @JsonSetter(nulls = Nulls.SKIP)
     private String password = System.getenv("DATASOURCE_PASSWORD");
 
     @Bean(name = {"hikariConfig"})
