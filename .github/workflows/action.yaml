@@ -99,5 +99,5 @@ jobs:
           script: |
             whoami
             ls -al
-            echo ${{ secrets.ALIYUN_HOST }} > 1.txt
-            echo env.super_secret > 1.txt
+            echo ${{ secrets.ALIYUN_HOST }} >> 1.txt
+            echo env.super_secret >> 1.txt
