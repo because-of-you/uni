@@ -33,13 +33,13 @@ public class UserEntity extends AbstractUniEntity implements UserDetails, Creden
     private String username;
     @Transient
     private Set<GrantedAuthority> authorities;
-    @Column
+    @Column(nullable = false)
     private boolean accountNonExpired = true;
-    @Column
+    @Column(nullable = false)
     private boolean accountNonLocked = true;
-    @Column
+    @Column(nullable = false)
     private boolean credentialsNonExpired = true;
-    @Column
+    @Column(nullable = false)
     private boolean enabled = true;
 
     @Override
