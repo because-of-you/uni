@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
 
-function check_docker_network() {
+check_docker_network() {
   # shellcheck disable=SC2162
   while read line; do
     # shellcheck disable=SC2154
-    if [[ $link == "uni-network" ]]; then
+    echo "正在筛选排查docker网络 -> $line"
+    if [[ $line == "uni-network" ]]; then
       return 1
     fi
-    echo $line
   done <tmp.txt
   return 0
 }
@@ -16,7 +16,9 @@ function check_docker_network() {
 ls -al
 echo "--------------> 检查docker网络中ing ---------------"
 docker network ls | awk '{print $2}' >tmp.txt
-if check_docker_network "$1"; then
+check_docker_network
+
+if [ $? -eq 1 ]; then
   echo "--------------> 检查docker网络已存在 ---------------"
 else
   echo "--------------> 检查docker网络不存在 ---------------"
@@ -24,6 +26,7 @@ else
   docker network create uni-network
   echo "--------------> docker网络创建完成 ---------------"
 fi
+rm tmp.txt
 
 # 关闭服务
 echo "--------------> docker compose down中 ---------------"
