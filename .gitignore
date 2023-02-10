@@ -1,6 +1,8 @@
 ### Java template
 # Compiled class file
 *.class
+src/main/resources/application.yaml
+application.yaml
 
 # Log file
 *.log
