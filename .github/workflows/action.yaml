@@ -120,6 +120,10 @@ jobs:
             cd .github/docker
             ls -al
             docker compose down
+            # 删除所有停止的容器
+            docker container prune -f
+            # 删除所有不使用的镜像
+            docker image prune --force --all
             docker compose up -d 
             cd ../../
             ls -al
