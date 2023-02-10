@@ -1,4 +1,6 @@
 spring:
+  datasource:
+    url: sss
   jpa:
     open-in-view: true
     show-sql: true
