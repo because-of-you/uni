@@ -1,5 +1,6 @@
 package cn.acitrus.uni.bean.datasource;
 
+import com.mysql.cj.util.StringUtils;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.Data;
@@ -19,8 +20,11 @@ import java.util.concurrent.TimeUnit;
 @Data
 public class MysqlConfig {
     private String url;
-    private String username;
-    private String password;
+    private String host = System.getenv("DATASOURCE_HOST");
+    private String port = System.getenv("DATASOURCE_PORT");
+    private String username = System.getenv("DATASOURCE_USER");
+    private String password = System.getenv("DATASOURCE_PASSWORD");
+
     @Bean(name = {"hikariConfig"})
     protected HikariConfig hikariConfig() {
         HikariConfig uniDataSourceConfig = new HikariConfig();
@@ -44,13 +48,16 @@ public class MysqlConfig {
         // 连接池的用户定义名称，主要出现在日志记录和JMX管理控制台中以识别池和池配置
         uniDataSourceConfig.setPoolName("uni-data-source-thread");
 
-        uniDataSourceConfig.setUsername("root");
-        uniDataSourceConfig.setPassword("wfy");
-        uniDataSourceConfig.setJdbcUrl("jdbc:mysql://localhost:3306/uni" +
+        uniDataSourceConfig.setUsername(username);
+        uniDataSourceConfig.setPassword(password);
+        uniDataSourceConfig.setJdbcUrl(String.format("jdbc:mysql://%s:%s/uni" +
                 "?useUnicode=true" +
                 "&characterEncoding=UTF-8" +
                 "&autoReconnect=true" +
-                "&autoReconnectForPools=true");
+                "&autoReconnectForPools=true", host, port));
+        if (!StringUtils.isNullOrEmpty(url)) {
+            uniDataSourceConfig.setJdbcUrl(url);
+        }
 
         return uniDataSourceConfig;
     }
