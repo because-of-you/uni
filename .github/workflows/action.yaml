@@ -101,7 +101,7 @@ jobs:
           username: ${{ secrets.ALIYUN_USER }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
           source: "*"
-          target: "/opt/component"
+          target: "/opt/component/server"
           rm: true
 
       - name: restart service
@@ -111,7 +111,7 @@ jobs:
           username: ${{ secrets.ALIYUN_USER }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
           script: |
-            cd /opt/component/.github/docker
+            cd /opt/component/server/.github/docker
             echo "DATASOURCE_HOST=${{ secrets.DATASOURCE_HOST }}" >> .env
             echo "DATASOURCE_PORT=${{ secrets.DATASOURCE_PORT }}" >> .env
             echo "DATASOURCE_USER=${{ secrets.DATASOURCE_USER }}" >> .env
