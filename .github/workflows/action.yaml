@@ -111,20 +111,11 @@ jobs:
           username: ${{ secrets.ALIYUN_USER }}
           password: ${{ secrets.ALIYUN_PASSWORD }}
           script: |
-            cd /opt/component
-            echo "DATASOURCE_HOST=${{ secrets.DATASOURCE_HOST }}" >> .github/docker/.env
-            echo "DATASOURCE_PORT=${{ secrets.DATASOURCE_PORT }}" >> .github/docker/.env
-            echo "DATASOURCE_USER=${{ secrets.DATASOURCE_USER }}" >> .github/docker/.env
-            echo "DATASOURCE_PASSWORD=${{ secrets.DATASOURCE_PASSWORD }}" >> .github/docker/.env
-            ls -al
-            cd .github/docker
-            ls -al
-            docker compose down
-            # 删除所有停止的容器
-            docker container prune -f
-            # 删除所有不使用的镜像
-            docker image prune --force --all
-            docker compose up -d 
-            cd ../../
-            ls -al
+            cd /opt/component/.github/docker
+            echo "DATASOURCE_HOST=${{ secrets.DATASOURCE_HOST }}" >> .env
+            echo "DATASOURCE_PORT=${{ secrets.DATASOURCE_PORT }}" >> .env
+            echo "DATASOURCE_USER=${{ secrets.DATASOURCE_USER }}" >> .env
+            echo "DATASOURCE_PASSWORD=${{ secrets.DATASOURCE_PASSWORD }}" >> .env
+            chmod +x ./compose-restart.sh && ./compose-restart.sh
+
       # -------------------------------------------服务启动维护管理模块-----------------------------------------------------
