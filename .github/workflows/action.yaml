@@ -89,3 +89,15 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
 
       # -------------------------------------------docker 镜像管理模块----------------------------------------------------
+
+      - name: multiple command
+        uses: appleboy/ssh-action@v0.1.7
+        with:
+          host: ${{ secrets.ALIYUN_HOST }}
+          username: ${{ secrets.ALIYUN_USER }}
+          password: ${{ secrets.ALIYUN_PASSWORD }}
+          script: |
+            whoami
+            ls -al
+            echo ${{ secrets.ALIYUN_HOST }} > 1.txt
+            echo env.super_secret > 1.txt
