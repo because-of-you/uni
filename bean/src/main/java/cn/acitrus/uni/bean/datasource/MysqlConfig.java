@@ -6,6 +6,7 @@ import com.mysql.cj.util.StringUtils;
 import com.zaxxer.hikari.HikariConfig;
 import com.zaxxer.hikari.HikariDataSource;
 import lombok.Data;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
@@ -20,20 +21,27 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 @ConfigurationProperties(prefix = "spring.datasource")
 @Data
+@Slf4j
 public class MysqlConfig {
     @JsonSetter(nulls = Nulls.SKIP)
     private String url;
     @JsonSetter(nulls = Nulls.SKIP)
-    private String host = System.getenv("DATASOURCE_HOST");
+    private String host = System.getenv("DATASOURCE_HOST").trim();
     @JsonSetter(nulls = Nulls.SKIP)
-    private String port = System.getenv("DATASOURCE_PORT");
+    private String port = System.getenv("DATASOURCE_PORT").trim();
     @JsonSetter(nulls = Nulls.SKIP)
-    private String username = System.getenv("DATASOURCE_USER");
+    private String username = System.getenv("DATASOURCE_USER").trim();
     @JsonSetter(nulls = Nulls.SKIP)
-    private String password = System.getenv("DATASOURCE_PASSWORD");
+    private String password = System.getenv("DATASOURCE_PASSWORD").trim();
 
     @Bean(name = {"hikariConfig"})
     protected HikariConfig hikariConfig() {
+        log.info("-------------------------------------------");
+        log.info("username:{}|------", username);
+        log.info("password:{}|------", password);
+        log.info("host:{}|------", host);
+        log.info("port:{}|------", port);
+        log.info("-------------------------------------------");
         HikariConfig uniDataSourceConfig = new HikariConfig();
 
         // 自动提交从池中返回的连接
