@@ -15,8 +15,9 @@ ADD .github/docker/* ./
 RUN chmod +x ./entrypoint.sh && \
     wget https://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar && \
     mkdir arthas && \
-    mv arthas-tunnel-server-3.6.7-fatjar.jar arthas/arthas && \
-    chmod +x arthas/arthas
+    mv arthas-tunnel-server-3.6.7-fatjar.jar arthas && \
+    chmod +x arthas && \
+    mv arthas ./arthas/
 #    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 # 运行
