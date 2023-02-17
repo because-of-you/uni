@@ -34,6 +34,7 @@ public class RedisCacheConfig {
         Config config = new Config();
         config
                 .setThreads(processors * 2 + 1)
+                .setNettyThreads(processors * 2 + 1)
                 .useSingleServer()
                 .setAddress(redis.getHost())
                 .setUsername(redis.getUsername())
