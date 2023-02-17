@@ -38,7 +38,7 @@ public class RedisCacheConfig {
                 .setAddress(redis.getHost())
                 .setUsername(redis.getUsername())
                 .setPassword(redis.getPassword())
-                .setConnectionPoolSize(64)
+                .setConnectionPoolSize(processors * 2 + 1)
                 .setConnectionMinimumIdleSize(processors)
                 .setClientName("uni-redis")
                 .setIdleConnectionTimeout((int) TimeUnit.SECONDS.toMillis(3))
