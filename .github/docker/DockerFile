@@ -7,7 +7,6 @@ ENV PATH=$PATH:$ARTHAS_HOME/
 
 # 工作目录
 WORKDIR /opt/component/
-COPY --from=busybox /opt/component/arthas ./
 
 # 复制其他文件
 ADD server/target/server-exec.jar ./server.jar
