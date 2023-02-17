@@ -36,13 +36,13 @@ jobs:
 
       # ----------------------------------------------- 第三方文件下载 ----------------------------------------------------
 
-      - name: run shell
+      - name: build arthas shell
         run: |
           mkdir -p plugins/
           # wget http://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar -O plugins/arthas
           wget https://arthas.aliyun.com/arthas-boot.jar -O plugins/arthas-boot.jar
           echo "#!/bin/bash " >> plugins/arthas.sh
-          echo "java -jar arthas-boot.jar " >> plugins/arthas.sh
+          echo "java -jar /opt/component/plugins/arthas-boot.jar " >> plugins/arthas
 
       # ----------------------------------------------- 第三方文件下载 ----------------------------------------------------
 
