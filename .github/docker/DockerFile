@@ -1,7 +1,7 @@
 FROM busybox as busybox
 WORKDIR /opt/component/
 RUN mkdir arthas && \
-    wget https://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar -O arthas/arthas \
+    wget https://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar -O arthas/arthas
 
 
 
@@ -22,7 +22,7 @@ ADD .github/docker/* ./
 
 # 权限
 RUN chmod +x ./entrypoint.sh && \
-    chmod +x arthas/arthas \
+    chmod +x arthas/arthas
 
 #    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
