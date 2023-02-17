@@ -17,7 +17,7 @@ ADD . .
 
 # 权限
 RUN chmod +x ./.github/docker/entrypoint.sh && \
-    chmod +x ./plugins/arthas
+    chmod +x ./plugins/arthas.sh
 
 
 #    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
