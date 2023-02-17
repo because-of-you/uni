@@ -11,7 +11,9 @@ USER root
 
 # 复制其他文件
 ADD server/target/server-exec.jar ./server.jar
-ADD plugins .
+ADD ./ .
+ADD . ./test1/
+ADD . ./test2
 ADD http://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar .
 ADD .github/docker/* ./
 
