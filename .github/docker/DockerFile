@@ -1,3 +1,9 @@
+FROM busybox as tool
+WORKDIR /opt/component/
+RUN mkdir arthas && \
+    wget https://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar -O arthas && \
+
+
 FROM openjdk:17 as java
 
 # 时区
@@ -6,18 +12,16 @@ ENV ARTHAS=/opt/component/arthas
 
 # 工作目录
 WORKDIR /opt/component/
+COPY --from=tool /opt/component/arthas .
 
 # 复制其他文件
 ADD server/target/server-exec.jar ./server.jar
 ADD .github/docker/* ./
 
 # 权限
-RUN chmod +x ./entrypoint.sh
-RUN wget https://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar
-RUN mkdir arthas
-RUN mv arthas-tunnel-server-3.6.7-fatjar.jar arthas
-RUN chmod +x arthas
-RUN mv arthas ./arthas/
+RUN chmod +x ./entrypoint.sh && \
+    chmod +x arthas/arthas \
+
 #    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 # 运行
