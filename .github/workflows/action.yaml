@@ -34,10 +34,16 @@ jobs:
         with:
           ref: main
 
-      # ------------------------------------------- java 构建管理模块 ----------------------------------------------------
-      #
+      # ----------------------------------------------- 第三方文件下载 ----------------------------------------------------
+
       - name: run shell
-        run: wget http://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar -O arthas
+        run: |
+          mkdir -p plugins/arthas
+          wget http://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar -O plugins/arthas
+
+      # ----------------------------------------------- 第三方文件下载 ----------------------------------------------------
+
+      # ------------------------------------------- java 构建管理模块 ----------------------------------------------------
 
       - name: Set up JDK 17
         uses: actions/setup-java@v3

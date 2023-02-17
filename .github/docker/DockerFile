@@ -1,16 +1,8 @@
-FROM busybox as busybox
-WORKDIR /opt/component/
-RUN mkdir arthas
-RUN wget --no-check-certificate --content-disposition \
-    http://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar \
-    -O arthas/arthas
-
-
 FROM openjdk:17 as java
 
 # 时区
 ENV TZ=Asia/Shanghai
-ENV ARTHAS_HOME=/opt/component/arthas
+ENV ARTHAS_HOME=/opt/component/plugins
 ENV PATH=$PATH:$ARTHAS_HOME/
 
 # 工作目录
@@ -19,6 +11,7 @@ COPY --from=busybox /opt/component/arthas ./
 
 # 复制其他文件
 ADD server/target/server-exec.jar ./server.jar
+ADD plugins ./
 ADD .github/docker/* ./
 
 # 权限
