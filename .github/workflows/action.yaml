@@ -38,7 +38,7 @@ jobs:
 
       - name: run shell
         run: |
-          mkdir -p plugins/arthas
+          mkdir -p plugins/
           wget http://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar -O plugins/arthas
 
       # ----------------------------------------------- 第三方文件下载 ----------------------------------------------------
