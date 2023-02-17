@@ -10,20 +10,20 @@ WORKDIR /opt/component/
 USER root
 
 # 复制其他文件
-ADD server/target/server-exec.jar ./server.jar
-ADD ./ .
-ADD . ./test1/
-ADD . ./test2
-ADD http://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar .
-ADD .github/docker/* ./
+#ADD server/target/server-exec.jar ./server.jar
+ADD . .
+#ADD http://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar .
+#ADD .github/docker/* ./
 
 # 权限
-RUN chmod +x ./entrypoint.sh
+RUN chmod +x ./.github/docker/entrypoint.sh && \
+    chmod +x ./plugins/arthas
+
 
 #    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
 
 # 运行
-ENTRYPOINT ["./entrypoint.sh"]
+ENTRYPOINT ["./.github/docker/entrypoint.sh"]
 CMD [""]
 
 
