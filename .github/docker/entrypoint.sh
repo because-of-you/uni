@@ -1,3 +1,3 @@
 #!/bin/bash
 #./builder
-java -jar server/target/server.jar
+java -jar /opt/component/server/target/server.jar
