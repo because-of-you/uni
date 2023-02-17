@@ -1,4 +1,4 @@
-FROM busybox as tool
+FROM busybox as busybox
 WORKDIR /opt/component/
 RUN mkdir arthas && \
     wget https://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar -O arthas/arthas \
@@ -9,11 +9,12 @@ FROM openjdk:17 as java
 
 # 时区
 ENV TZ=Asia/Shanghai
-ENV ARTHAS=/opt/component/arthas
+ENV ARTHAS_HOME=/opt/component/arthas
+ENV PATH=$PATH:$ARTHAS_HOME/
 
 # 工作目录
 WORKDIR /opt/component/
-COPY --from=tool /opt/component/arthas .
+COPY --from=busybox /opt/component/arthas ./
 
 # 复制其他文件
 ADD server/target/server-exec.jar ./server.jar
