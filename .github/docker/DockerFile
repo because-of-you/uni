@@ -1,7 +1,8 @@
 FROM busybox as tool
 WORKDIR /opt/component/
 RUN mkdir arthas && \
-    wget https://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar -O arthas && \
+    wget https://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar -O arthas/arthas \
+
 
 
 FROM openjdk:17 as java
