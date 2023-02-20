@@ -69,7 +69,8 @@ public class MysqlConfig {
                 "?useUnicode=true" +
                 "&characterEncoding=UTF-8" +
                 "&autoReconnect=true" +
-                "&autoReconnectForPools=true", host, port));
+                "&autoReconnectForPools=true" +
+                "&createDatabaseIfNotExist=true", host, port));
         if (!StringUtils.isNullOrEmpty(url)) {
             uniDataSourceConfig.setJdbcUrl(url);
         }
