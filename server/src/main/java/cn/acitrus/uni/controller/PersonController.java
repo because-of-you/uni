@@ -7,6 +7,7 @@ import cn.acitrus.uni.repository.entities.PersonRepository;
 import cn.acitrus.uni.repository.nodes.NodeRepository;
 import cn.acitrus.uni.service.PersonRepositoryService;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,6 +18,7 @@ import java.util.List;
  * {@code @date:} 2023/1/14
  **/
 @RestController
+@RequestMapping("api")
 public class PersonController {
     final
     PersonRepositoryService personRepositoryService;
