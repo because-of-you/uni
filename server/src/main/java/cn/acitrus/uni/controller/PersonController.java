@@ -6,10 +6,7 @@ import cn.acitrus.uni.common.nodes.Node;
 import cn.acitrus.uni.repository.entities.PersonRepository;
 import cn.acitrus.uni.repository.nodes.NodeRepository;
 import cn.acitrus.uni.service.PersonRepositoryService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,16 +32,19 @@ public class PersonController {
     }
 
     @GetMapping("test")
+    @ResponseBody
     public void add() {
         personRepositoryService.test();
     }
 
     @GetMapping("list")
+    @ResponseBody
     public List<Person> list(@RequestParam String test) {
         return personRepository.costumList(test);
     }
 
     @GetMapping("nodes")
+    @ResponseBody
     public List<Node> nodes(){
         return nodeRepository.findAll();
     }
