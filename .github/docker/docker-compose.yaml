@@ -14,8 +14,11 @@ services:
         delay: 5s
         max_attempts: 3
         window: 120s
-    #      rollback_config:
-    #        parallelism:
+      #      rollback_config:
+      #        parallelism:
+      resources:
+        limits:
+          memory: 500m
 
     networks:
       - uni-network

@@ -1,3 +1,3 @@
 #!/bin/bash
 #./builder
-java -jar server/target/server-exec.jar
+java -XX:+UseContainerSupport -XX:InitialRAMPercentage=70.0 -XX:MaxRAMPercentage=70.0 -jar server/target/server-exec.jar
