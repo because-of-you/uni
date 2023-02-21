@@ -7,6 +7,7 @@ import cn.acitrus.uni.repository.entities.PersonRepository;
 import cn.acitrus.uni.repository.nodes.NodeRepository;
 import cn.acitrus.uni.service.PersonRepositoryService;
 import org.springframework.web.bind.annotation.*;
+import reactor.core.publisher.Mono;
 
 import java.util.List;
 
@@ -45,12 +46,12 @@ public class PersonController {
 
     @GetMapping("nodes")
     @ResponseBody
-    public List<Node> nodes(){
+    public List<Node> nodes() {
         return nodeRepository.findAll();
     }
 
     @GetMapping("yace")
-    public String testCon(){
-        return "yace";
+    public Mono<String> testCon() {
+        return Mono.empty();
     }
 }
