@@ -52,6 +52,6 @@ public class PersonController {
 
     @GetMapping("yace")
     public Mono<String> testCon() {
-        return Mono.empty();
+        return Mono.just("hello world");
     }
 }
