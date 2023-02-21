@@ -48,4 +48,9 @@ public class PersonController {
     public List<Node> nodes(){
         return nodeRepository.findAll();
     }
+
+    @GetMapping("yace")
+    public String testCon(){
+        return "yace";
+    }
 }
