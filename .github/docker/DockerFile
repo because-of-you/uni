@@ -1,4 +1,4 @@
-FROM openjdk:17 as java
+FROM open-liberty:full-java17-openj9 as java
 
 # 时区
 ENV TZ=Asia/Shanghai
