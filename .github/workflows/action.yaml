@@ -11,12 +11,12 @@ name: uni project build
 
 on:
   push:
-    branches: [ "main" ]
+    branches: [ "dev", "main" ]
     tags:
       - "v*.*.*"
   pull_request:
     branches: [ ]
-  # 每天 的 一点 凌晨 调度运行
+    # 每天 的 一点 凌晨 调度运行
     schedule:
       - cron: '0 1 * * *'
 env:

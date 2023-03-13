@@ -66,7 +66,7 @@ public class PersonController {
     public Mono<Person> testCon(String name) {
         Person person = new Person();
         person.setName(null);
-        log.info("请求体 -> {}", objectMapper.writeValueAsString(request));
+        log.info("请求体 -> {}", objectMapper.writeValueAsString(request.getHttpServletMapping()));
         return Mono.just(person);
     }
 }
