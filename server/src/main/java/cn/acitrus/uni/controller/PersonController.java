@@ -63,7 +63,6 @@ public class PersonController {
     }
 
     @GetMapping("yace")
-    @Test
     @SneakyThrows
     public Mono<Person> testCon(String name) {
         Person person = new Person();
