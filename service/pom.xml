@@ -5,17 +5,21 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.acitrus</groupId>
-        <artifactId>uni</artifactId>
+        <artifactId>parent</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <groupId>cn.acitrus.uni</groupId>
     <artifactId>service</artifactId>
     <version>${revision}</version>
 
     <dependencies>
+        <!--   compile   -->
+
+        <!--   provided  -->
+
+        <!--   module    -->
         <dependency>
-            <groupId>cn.acitrus.uni</groupId>
+            <groupId>cn.acitrus</groupId>
             <artifactId>repository</artifactId>
             <version>${revision}</version>
         </dependency>

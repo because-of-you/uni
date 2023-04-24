@@ -7,12 +7,12 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.2</version>
+        <version>3.0.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
     <groupId>cn.acitrus</groupId>
-    <artifactId>uni</artifactId>
+    <artifactId>parent</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
 
@@ -21,8 +21,8 @@
         <module>repository</module>
         <module>service</module>
         <module>server</module>
-        <module>bean</module>
-        <module>test</module>
+<!--        <module>bean</module>-->
+        <module>connectors</module>
     </modules>
 
     <properties>
@@ -33,6 +33,7 @@
         <revision>0.0.1</revision>
         <ulid.version>5.1.0</ulid.version>
         <redisson.version>3.19.1</redisson.version>
+        <mysql.connector.java.version>8.0.32</mysql.connector.java.version>
     </properties>
 
     <build>

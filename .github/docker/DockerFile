@@ -19,9 +19,10 @@ ADD . .
 RUN chmod +x ./.github/docker/entrypoint.sh && \
     chmod +x ./plugins/arthas && \
     apt-get update && \
-    apt-get install libjemalloc-dev -y
+    apt-get install libjemalloc-dev -y && \
+    rm -rf /var/lib/apt/lists/*
 
-ENV LD_PRELOAD="/usr/lib/x86_64-linux-gnu/libjemalloc.so"
+ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so
 
 
 #    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
