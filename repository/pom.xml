@@ -10,52 +10,24 @@
     </parent>
 
     <artifactId>repository</artifactId>
-    <version>${revision}</version>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
 
     <dependencies>
-        <!--   compile   -->
-        <!--   provided  -->
-        <!--   module    -->
-
-        <!--   compile   -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-jpa</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-data-neo4j</artifactId>
-        </dependency>
-
-
-
-        <!--   module    -->
         <dependency>
             <groupId>cn.acitrus</groupId>
             <artifactId>common</artifactId>
             <version>${revision}</version>
         </dependency>
+
         <dependency>
             <groupId>cn.acitrus</groupId>
             <artifactId>connectors</artifactId>
-            <version>${revision}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-configuration-processor</artifactId>
-            <optional>true</optional>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework.data</groupId>
-            <artifactId>spring-data-commons</artifactId>
+            <version>0.0.1</version>
         </dependency>
 
     </dependencies>

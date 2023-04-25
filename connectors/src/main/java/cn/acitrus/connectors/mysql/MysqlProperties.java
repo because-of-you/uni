@@ -4,13 +4,13 @@ import com.fasterxml.jackson.annotation.JsonSetter;
 import com.fasterxml.jackson.annotation.Nulls;
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
-import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 /**
  * {@code @author:} wfy <br/>
  * {@code @date:} 2023/4/24
  **/
-@Configuration
+@Component
 @ConfigurationProperties(prefix = "spring.datasource")
 @Data
 public class MysqlProperties {

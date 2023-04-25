@@ -9,13 +9,14 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 
 /**
  * {@code @author:} wfy <br/>
  * {@code @date:} 2023/4/24
  **/
 @Slf4j
-@Configuration
+@Component
 @RequiredArgsConstructor(access = AccessLevel.PUBLIC)
 public class MysqlConnector implements Connector {
     private final MysqlProperties mysqlProperties;

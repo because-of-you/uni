@@ -18,7 +18,12 @@
     <dependencies>
         <dependency>
             <groupId>cn.acitrus</groupId>
-            <artifactId>service</artifactId>
+            <artifactId>repository</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.acitrus</groupId>
+            <artifactId>connectors</artifactId>
             <version>${revision}</version>
         </dependency>
 
