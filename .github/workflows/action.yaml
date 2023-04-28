@@ -15,7 +15,7 @@ on:
     tags:
       - "v*.*.*"
   pull_request:
-    branches: [ ]
+    branches: [ "dev" ]
     # 每天 的 一点 凌晨 调度运行
     schedule:
       - cron: '0 1 * * *'
@@ -57,7 +57,7 @@ jobs:
 
 
       - name: Build with Maven
-        run: mvn clean -DskipTests=true package
+        run: mvn clean -U -DskipTests=true package
 
       # ------------------------------------------- java 构建管理模块 ----------------------------------------------------
 
