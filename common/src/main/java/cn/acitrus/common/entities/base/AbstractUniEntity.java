@@ -8,6 +8,7 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.MappedSuperclass;
 import jakarta.persistence.Version;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Comment;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
@@ -27,6 +28,7 @@ import java.util.Date;
 @AllArgsConstructor
 @ToString
 @MappedSuperclass
+@SuperBuilder
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 @EntityListeners(AuditingEntityListener.class)
 public abstract class AbstractUniEntity extends AbstractUniSimpleEntity {
@@ -39,7 +41,8 @@ public abstract class AbstractUniEntity extends AbstractUniSimpleEntity {
     @CreatedBy
     @Column(updatable = false, nullable = false)
     @Comment("创建人")
-    public String createBy;
+    @Builder.Default
+    public String createBy = "";
 
     @LastModifiedDate
     @Column(nullable = false)
@@ -50,7 +53,8 @@ public abstract class AbstractUniEntity extends AbstractUniSimpleEntity {
     @LastModifiedBy
     @Column(nullable = false)
     @Comment("最新修改人")
-    public String lastModifiedBy;
+    @Builder.Default
+    public String lastModifiedBy = "";
 
     @Version
     @Column(nullable = false)

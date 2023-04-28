@@ -7,6 +7,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 import org.hibernate.annotations.Comment;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.JdbcTypeCode;
@@ -24,14 +25,16 @@ import java.util.UUID;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
+@SuperBuilder
 @MappedSuperclass
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public abstract class AbstractUniSimpleEntity implements Serializable {
     @Id
     @GeneratedValue(generator = "uni_uuid_generator")
-    @GenericGenerator(name = "uni_uuid_generator", strategy = "cn.acitrus.common.entities.base.UniIdGenerator")
+    @GenericGenerator(name = "uni_uuid_generator", strategy = "cn.acitrus.common.generator.UniIdGenerator")
     @Column(name = "id", nullable = false, updatable = false, length = 16)
     @Comment("uni-自增主键id")
     @JdbcTypeCode(SqlTypes.BINARY)
     private UUID id;
+
 }

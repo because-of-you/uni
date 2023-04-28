@@ -1,5 +1,6 @@
 package cn.acitrus.common.nodes.base;
 
+import cn.acitrus.common.generator.UniIdGenerator;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.*;
@@ -25,6 +26,6 @@ import java.util.UUID;
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
 public abstract class AbstractUniSimpleNode implements Serializable {
     @Id
-    @GeneratedValue(generatorClass = GeneratedValue.UUIDGenerator.class)
+    @GeneratedValue(generatorClass = UniIdGenerator.class)
     private UUID id;
 }

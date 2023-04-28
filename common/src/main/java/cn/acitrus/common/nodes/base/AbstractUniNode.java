@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import jakarta.persistence.Version;
 import lombok.*;
 import lombok.experimental.SuperBuilder;
+import org.neo4j.cypherdsl.core.Neo4jVersion;
 import org.springframework.data.annotation.CreatedBy;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
