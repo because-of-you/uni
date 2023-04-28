@@ -1,7 +1,7 @@
-package cn.acitrus.server.config;
+package cn.acitrus.server.connertor;
 
-import cn.acitrus.service.config.ConnectorService;
-import cn.acitrus.transfer.object.config.ConnectorEntityDto;
+import cn.acitrus.service.connector.ConnectorService;
+import cn.acitrus.transfer.object.connector.ConnectorEntityDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;

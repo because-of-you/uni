@@ -1,9 +1,9 @@
 package cn.acitrus.common.enums.permissions;
 
-import cn.acitrus.common.entities.config.connection.Connection;
-import cn.acitrus.common.entities.config.connection.DefaultConnection;
-import cn.acitrus.common.entities.config.connection.Neo4jConnection;
-import cn.acitrus.common.entities.config.connection.RedisConnection;
+import cn.acitrus.common.entities.connector.connection.Connection;
+import cn.acitrus.common.entities.connector.connection.DefaultConnection;
+import cn.acitrus.common.entities.connector.connection.Neo4jConnection;
+import cn.acitrus.common.entities.connector.connection.RedisConnection;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

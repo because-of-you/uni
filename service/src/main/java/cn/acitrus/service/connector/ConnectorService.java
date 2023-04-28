@@ -1,7 +1,7 @@
-package cn.acitrus.service.config;
+package cn.acitrus.service.connector;
 
 
-import cn.acitrus.transfer.object.config.ConnectorEntityDto;
+import cn.acitrus.transfer.object.connector.ConnectorEntityDto;
 
 import java.util.List;
 

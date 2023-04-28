@@ -1,8 +1,8 @@
-package cn.acitrus.transfer.mapper.config;
+package cn.acitrus.transfer.mapper.connector;
 
-import cn.acitrus.common.entities.config.ConnectorEntity;
-import cn.acitrus.transfer.object.config.ConnectorEntityDto;
-import cn.acitrus.transfer.projection.config.ConnectorEntityInfo;
+import cn.acitrus.common.entities.connector.ConnectorEntity;
+import cn.acitrus.transfer.object.connector.ConnectorEntityDto;
+import cn.acitrus.transfer.projection.connector.ConnectorEntityInfo;
 import org.mapstruct.*;
 
 @Mapper(unmappedTargetPolicy = ReportingPolicy.IGNORE, componentModel = MappingConstants.ComponentModel.SPRING)

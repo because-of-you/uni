@@ -1,12 +1,10 @@
 package cn.acitrus.repository.connectors.redis;
 
-import cn.acitrus.common.entities.config.ConnectorEntity;
-import cn.acitrus.common.entities.config.connection.RedisConnection;
+import cn.acitrus.common.entities.connector.ConnectorEntity;
+import cn.acitrus.common.entities.connector.connection.RedisConnection;
 import cn.acitrus.common.enums.permissions.ConnectorType;
-import cn.acitrus.common.enums.repository.RepositoryType;
-import cn.acitrus.repository.config.ConnectorEntityRepository;
+import cn.acitrus.repository.connectors.ConnectorEntityRepository;
 import cn.acitrus.repository.connectors.Connector;
-import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;

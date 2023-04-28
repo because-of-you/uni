@@ -1,12 +1,11 @@
 package cn.acitrus.repository.connectors.neo4j;
 
-import cn.acitrus.common.entities.config.ConnectorEntity;
-import cn.acitrus.common.entities.config.connection.Neo4jConnection;
+import cn.acitrus.common.entities.connector.ConnectorEntity;
+import cn.acitrus.common.entities.connector.connection.Neo4jConnection;
 import cn.acitrus.common.enums.permissions.ConnectorType;
-import cn.acitrus.repository.config.ConnectorEntityRepository;
+import cn.acitrus.repository.connectors.ConnectorEntityRepository;
 import cn.acitrus.repository.connectors.Connector;
 import jakarta.annotation.Nonnull;
-import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.springframework.boot.autoconfigure.neo4j.Neo4jProperties;

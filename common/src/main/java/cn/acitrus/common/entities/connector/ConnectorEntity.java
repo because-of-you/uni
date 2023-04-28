@@ -1,8 +1,8 @@
-package cn.acitrus.common.entities.config;
+package cn.acitrus.common.entities.connector;
 
 import cn.acitrus.common.entities.base.AbstractUniEntity;
-import cn.acitrus.common.entities.config.connection.Connection;
-import cn.acitrus.common.entities.config.connection.ConnectionConverter;
+import cn.acitrus.common.entities.connector.connection.Connection;
+import cn.acitrus.common.entities.connector.connection.ConnectionConverter;
 import cn.acitrus.common.enums.permissions.ConnectorType;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;

@@ -1,10 +1,10 @@
-package cn.acitrus.service.config.impl;
+package cn.acitrus.service.connector.impl;
 
-import cn.acitrus.repository.config.ConnectorEntityRepository;
-import cn.acitrus.service.config.ConnectorService;
-import cn.acitrus.transfer.mapper.config.ConnectorEntityMapper;
-import cn.acitrus.transfer.object.config.ConnectorEntityDto;
-import cn.acitrus.transfer.projection.config.ConnectorEntityInfo;
+import cn.acitrus.repository.connectors.ConnectorEntityRepository;
+import cn.acitrus.service.connector.ConnectorService;
+import cn.acitrus.transfer.mapper.connector.ConnectorEntityMapper;
+import cn.acitrus.transfer.object.connector.ConnectorEntityDto;
+import cn.acitrus.transfer.projection.connector.ConnectorEntityInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 

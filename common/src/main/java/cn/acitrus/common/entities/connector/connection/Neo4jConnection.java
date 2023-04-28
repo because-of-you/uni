@@ -1,4 +1,4 @@
-package cn.acitrus.common.entities.config.connection;
+package cn.acitrus.common.entities.connector.connection;
 
 import cn.acitrus.common.enums.permissions.ConnectorType;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;

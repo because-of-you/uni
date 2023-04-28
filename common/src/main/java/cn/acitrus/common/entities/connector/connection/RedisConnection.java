@@ -1,7 +1,6 @@
-package cn.acitrus.common.entities.config.connection;
+package cn.acitrus.common.entities.connector.connection;
 
 import cn.acitrus.common.enums.permissions.ConnectorType;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;
 import com.fasterxml.jackson.databind.annotation.JsonNaming;
 import lombok.AllArgsConstructor;
@@ -16,7 +15,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @JsonNaming(PropertyNamingStrategies.SnakeCaseStrategy.class)
-@JsonIgnoreProperties(ignoreUnknown = true)
-public class DefaultConnection implements Connection {
+public class RedisConnection implements Connection {
+    private String host;
+    private Integer port;
+    private String username;
+    private String password;
     private ConnectorType connectorType;
 }

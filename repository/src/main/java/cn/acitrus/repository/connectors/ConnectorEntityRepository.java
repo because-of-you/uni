@@ -1,7 +1,7 @@
-package cn.acitrus.repository.config;
+package cn.acitrus.repository.connectors;
 
-import cn.acitrus.common.entities.config.ConnectorEntity;
-import cn.acitrus.transfer.projection.config.ConnectorEntityInfo;
+import cn.acitrus.common.entities.connector.ConnectorEntity;
+import cn.acitrus.transfer.projection.connector.ConnectorEntityInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;
