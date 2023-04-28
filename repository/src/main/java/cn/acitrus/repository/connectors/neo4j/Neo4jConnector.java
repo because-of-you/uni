@@ -25,8 +25,7 @@ import java.time.Duration;
 @Component
 @RequiredArgsConstructor
 public class Neo4jConnector implements Connector {
-    @Resource
-    private ConnectorEntityRepository repository;
+    private final ConnectorEntityRepository repository;
 
     @Bean
     @Primary

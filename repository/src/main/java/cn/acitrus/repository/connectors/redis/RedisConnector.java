@@ -1,11 +1,21 @@
 package cn.acitrus.repository.connectors.redis;
 
+import cn.acitrus.common.entities.config.ConnectorEntity;
+import cn.acitrus.common.entities.config.connection.RedisConnection;
+import cn.acitrus.common.enums.permissions.ConnectorType;
 import cn.acitrus.common.enums.repository.RepositoryType;
+import cn.acitrus.repository.config.ConnectorEntityRepository;
 import cn.acitrus.repository.connectors.Connector;
+import jakarta.annotation.Resource;
 import lombok.RequiredArgsConstructor;
+import org.redisson.Redisson;
+import org.redisson.api.RedissonClient;
+import org.redisson.config.Config;
+import org.redisson.spring.cache.CacheConfig;
+import org.redisson.spring.cache.RedissonSpringCacheManager;
 import org.springframework.cache.CacheManager;
-import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.context.annotation.Bean;
+import org.springframework.data.domain.Example;
 import org.springframework.stereotype.Component;
 
 import java.util.Map;
@@ -19,29 +29,35 @@ import java.util.concurrent.TimeUnit;
 @Component
 @RequiredArgsConstructor
 public class RedisConnector implements Connector {
-//    @Bean(destroyMethod = "shutdown")
-//    protected RedissonClient redisson(
-//            RepositoryConfigEntityRepository repository
-//    ) {
-//        RepositoryConfigEntity redis = repository.getRepositoryConfigEntityByRepositoryTypeEquals(RepositoryType.REDIS);
-//
-//        int processors = Runtime.getRuntime().availableProcessors();
-//        Config config = new Config();
-//        config
-//                .setThreads(processors * 2 + 1)
-//                .setNettyThreads(processors * 2 + 1)
-//                .useSingleServer()
-//                .setAddress(redis.getHost())
-//                .setUsername(redis.getUsername())
-//                .setPassword(redis.getPassword())
-//                .setConnectionPoolSize(processors * 2 + 1)
-//                .setConnectionMinimumIdleSize(processors)
-//                .setClientName("uni-redis")
-//                .setIdleConnectionTimeout((int) TimeUnit.SECONDS.toMillis(3))
-//                .setConnectTimeout((int) TimeUnit.SECONDS.toMillis(3))
-//        ;
-//        return Redisson.create(config);
-//    }
+    private final ConnectorEntityRepository repository;
+
+    @Bean(destroyMethod = "shutdown")
+    protected RedissonClient redisson() {
+
+        Example<ConnectorEntity> example = Example.of(ConnectorEntity.builder().connectorType(ConnectorType.REDIS).build());
+        ConnectorEntity connector = repository.findOne(example).orElse(new ConnectorEntity());
+
+        if (connector.getConnection() instanceof RedisConnection redisConnection) {
+            int processors = Runtime.getRuntime().availableProcessors();
+            Config config = new Config();
+            config
+                    .setThreads(processors * 2 + 1)
+                    .setNettyThreads(processors * 2 + 1)
+                    .useSingleServer()
+                    .setAddress(redisConnection.getHost())
+                    .setUsername(redisConnection.getUsername())
+                    .setPassword(redisConnection.getPassword())
+                    .setConnectionPoolSize(processors * 2 + 1)
+                    .setConnectionMinimumIdleSize(processors)
+                    .setClientName("uni-redis")
+                    .setIdleConnectionTimeout((int) TimeUnit.SECONDS.toMillis(3))
+                    .setConnectTimeout((int) TimeUnit.SECONDS.toMillis(3));
+
+            return Redisson.create(config);
+        }
+
+        return Redisson.create();
+    }
 
     @Bean
     protected CacheManager cacheManager(
