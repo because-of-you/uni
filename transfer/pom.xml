@@ -9,12 +9,27 @@
         <version>${revision}</version>
     </parent>
 
-    <artifactId>service</artifactId>
+    <artifactId>transfer</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>cn.acitrus</groupId>
-            <artifactId>repository</artifactId>
+            <artifactId>common</artifactId>
             <version>${revision}</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${mapstruct.version}</version>
+        </dependency>
     </dependencies>
+
 </project>

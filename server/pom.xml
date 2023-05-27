@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.acitrus</groupId>
-        <artifactId>uni</artifactId>
+        <artifactId>parent</artifactId>
         <version>${revision}</version>
     </parent>
 
@@ -15,32 +15,27 @@
     <name>server</name>
     <description>处理web请求</description>
 
-    <properties>
-        <java.version>17</java.version>
-    </properties>
     <dependencies>
         <dependency>
-            <groupId>cn.acitrus.uni</groupId>
+            <groupId>cn.acitrus</groupId>
             <artifactId>service</artifactId>
             <version>${revision}</version>
         </dependency>
 
-        <dependency>
-            <groupId>cn.acitrus.uni</groupId>
-            <artifactId>bean</artifactId>
-            <version>${revision}</version>
-        </dependency>
+        <!--   compile   -->
+        <!--   provided  -->
+        <!--   module    -->
 
-        <!--        <dependency>-->
-        <!--            <groupId>org.springframework.boot</groupId>-->
-        <!--            <artifactId>spring-boot-starter-web</artifactId>-->
-        <!--            <exclusions>-->
-        <!--                <exclusion>-->
-        <!--                    <groupId>org.springframework.boot</groupId>-->
-        <!--                    <artifactId>spring-boot-starter-tomcat</artifactId>-->
-        <!--                </exclusion>-->
-        <!--            </exclusions>-->
-        <!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -62,20 +57,6 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-webflux -->
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-webflux</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-reactor-netty</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-
     </dependencies>
 
     <build>
@@ -85,7 +66,7 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
-                    <mainClass>cn.acitrus.uni.UniServerApplication</mainClass>
+                    <mainClass>cn.acitrus.UniServerApplication</mainClass>
                     <classifier>exec</classifier>
                     <layout>ZIP</layout>
                 </configuration>

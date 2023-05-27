@@ -7,22 +7,21 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>3.0.2</version>
-        <relativePath/> <!-- lookup parent from repository -->
+        <version>3.0.6</version>
+        <relativePath/>
     </parent>
 
     <groupId>cn.acitrus</groupId>
-    <artifactId>uni</artifactId>
+    <artifactId>parent</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
 
     <modules>
         <module>common</module>
+        <module>server</module>
         <module>repository</module>
         <module>service</module>
-        <module>server</module>
-        <module>bean</module>
-        <module>test</module>
+        <module>transfer</module>
     </modules>
 
     <properties>
@@ -30,9 +29,12 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <!-- 定义父模块和子模块的项目版本 or 打tag -->
-        <revision>0.0.1</revision>
+        <revision>0.0.3</revision>
         <ulid.version>5.1.0</ulid.version>
         <redisson.version>3.19.1</redisson.version>
+        <mysql.connector.java.version>8.0.32</mysql.connector.java.version>
+        <mapstruct.version>1.5.5.Final</mapstruct.version>
+        <redission.version>3.20.1</redission.version>
     </properties>
 
     <build>
