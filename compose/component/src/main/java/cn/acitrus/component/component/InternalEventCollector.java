@@ -1,4 +1,4 @@
-package cn.acitrus.component.internal;
+package cn.acitrus.component.component;
 
 import cn.acitrus.common.compose.Event;
 import cn.acitrus.component.protocol.EventCollector;
