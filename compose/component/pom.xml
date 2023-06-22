@@ -5,21 +5,17 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.acitrus</groupId>
-        <artifactId>parent</artifactId>
+        <artifactId>compose</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>service</artifactId>
     <version>${revision}</version>
+    <artifactId>component</artifactId>
+
     <dependencies>
         <dependency>
             <groupId>cn.acitrus</groupId>
-            <artifactId>repository</artifactId>
-            <version>${revision}</version>
-        </dependency>
-        <dependency>
-            <groupId>cn.acitrus</groupId>
-            <artifactId>component</artifactId>
+            <artifactId>core</artifactId>
             <version>${revision}</version>
         </dependency>
     </dependencies>
