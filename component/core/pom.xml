@@ -5,32 +5,19 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>cn.acitrus</groupId>
-        <artifactId>parent</artifactId>
+        <artifactId>component</artifactId>
         <version>${revision}</version>
     </parent>
 
-    <artifactId>transfer</artifactId>
+    <artifactId>core</artifactId>
     <version>${revision}</version>
+
 
     <dependencies>
         <dependency>
             <groupId>cn.acitrus</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>protocol</artifactId>
             <version>${revision}</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${mapstruct.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-processor</artifactId>
-            <version>${mapstruct.version}</version>
-        </dependency>
     </dependencies>
-
 </project>

@@ -8,29 +8,18 @@
         <artifactId>parent</artifactId>
         <version>${revision}</version>
     </parent>
-
-    <artifactId>transfer</artifactId>
+    <artifactId>component</artifactId>
+    <packaging>pom</packaging>
     <version>${revision}</version>
-
+    <modules>
+        <module>core</module>
+        <module>protocol</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>cn.acitrus</groupId>
             <artifactId>common</artifactId>
             <version>${revision}</version>
         </dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.mapstruct/mapstruct -->
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct</artifactId>
-            <version>${mapstruct.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-processor</artifactId>
-            <version>${mapstruct.version}</version>
-        </dependency>
     </dependencies>
-
 </project>

@@ -10,10 +10,16 @@
     </parent>
 
     <artifactId>service</artifactId>
+    <version>${revision}</version>
     <dependencies>
         <dependency>
             <groupId>cn.acitrus</groupId>
             <artifactId>repository</artifactId>
+            <version>${revision}</version>
+        </dependency>
+        <dependency>
+            <groupId>cn.acitrus</groupId>
+            <artifactId>core</artifactId>
             <version>${revision}</version>
         </dependency>
     </dependencies>
