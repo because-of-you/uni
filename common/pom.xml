@@ -52,11 +52,11 @@
         <!--            <scope>provided</scope>-->
         <!--        </dependency>-->
 
-        <dependency>
-            <groupId>com.google.protobuf</groupId>
-            <artifactId>protobuf-java</artifactId>
-            <version>${protobuf.version}</version>
-        </dependency>
+        <!--        <dependency>-->
+        <!--            <groupId>com.google.protobuf</groupId>-->
+        <!--            <artifactId>protobuf-java</artifactId>-->
+        <!--            <version>${protobuf.version}</version>-->
+        <!--        </dependency>-->
 
         <!-- gRPC dependencies -->
         <dependency>
