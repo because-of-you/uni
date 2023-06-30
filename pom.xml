@@ -22,7 +22,7 @@
         <module>compose</module>
         <module>repository</module>
         <module>service</module>
-        <module>server</module>
+        <module>web</module>
     </modules>
 
     <properties>

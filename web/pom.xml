@@ -9,10 +9,10 @@
     </parent>
 
     <groupId>cn.acitrus.uni</groupId>
-    <artifactId>server</artifactId>
+    <artifactId>web</artifactId>
     <version>${revision}</version>
 
-    <name>server</name>
+    <name>web</name>
     <description>处理web请求</description>
 
     <dependencies>
