@@ -1,4 +1,4 @@
-package cn.acitrus.server.socket;
+package cn.acitrus.web.socket;
 
 import jakarta.websocket.*;
 import jakarta.websocket.server.PathParam;

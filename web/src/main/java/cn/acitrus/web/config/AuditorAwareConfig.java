@@ -1,4 +1,4 @@
-package cn.acitrus.server.config;
+package cn.acitrus.web.config;
 
 import jakarta.annotation.Nonnull;
 import org.springframework.context.annotation.Bean;

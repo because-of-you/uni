@@ -1,4 +1,4 @@
-package cn.acitrus.server.connertor;
+package cn.acitrus.web.connertor;
 
 import cn.acitrus.service.connector.ConnectorService;
 import cn.acitrus.transfer.object.connector.ConnectorEntityDto;
