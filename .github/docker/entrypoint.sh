@@ -7,4 +7,4 @@ java \
   -Xshareclasses:cacheDir=.cache/javasharedresources \
   -Xtune:virtualized \
   -Xquickstart \
-  -jar server/target/server-exec.jar
+  -jar web/target/server-exec.jar
