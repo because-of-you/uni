@@ -7,7 +7,6 @@ import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
-import org.springframework.util.StringUtils;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -19,7 +18,7 @@ import static jakarta.websocket.CloseReason.CloseCodes.TRY_AGAIN_LATER;
  * {@code @date:} 2023/7/5
  **/
 @Slf4j
-@ServerEndpoint(value = "/compose/{token}")
+@ServerEndpoint(value = "/api/compose/{token}")
 @Component
 public class ComposeEventSocket {
     private static final String path = "token";
