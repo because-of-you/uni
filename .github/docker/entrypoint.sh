@@ -3,7 +3,7 @@ java \
   -XX:+UseContainerSupport \
   -XX:InitialRAMPercentage=30.0 \
   -XX:MaxRAMPercentage=30.0 \
-  -Xshareclasses:cacheDir=.cache/javasharedresources \
+  -Xshareclasses \
   -Xtune:virtualized \
   -Xquickstart \
   -jar server-exec.jar
