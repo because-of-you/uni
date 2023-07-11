@@ -1,31 +1,8 @@
-FROM ibm-semeru-runtimes:open-17-jdk-jammy as java
-
-# 时区
-ENV TZ=Asia/Shanghai
-ENV ARTHAS_HOME=/opt/component/plugins
-ENV PATH=$PATH:$ARTHAS_HOME/
-
-# 工作目录
-WORKDIR /opt/component/
-USER root
-
-# 复制其他文件
-#ADD server/target/server-exec.jar ./server.jar
-ADD . .
-#ADD http://github.com/alibaba/arthas/releases/download/arthas-all-3.6.7/arthas-tunnel-server-3.6.7-fatjar.jar .
-#ADD .github/docker/* ./
-
-# 权限
-RUN chmod +x ./.github/docker/entrypoint.sh && \
-    chmod +x ./plugins/arthas && \
-    apt-get update && \
-    apt-get install libjemalloc-dev -y && \
-    rm -rf /var/lib/apt/lists/*
-
-ENV LD_PRELOAD=/usr/lib/x86_64-linux-gnu/libjemalloc.so
+FROM wfybelief/jdk-17:dev
 
 
-#    sed -i 's/deb.debian.org/mirrors.ustc.edu.cn/g' /etc/apt/sources.list
+COPY ./.github ./.github
+COPY web/target/server-exec.jar ./
 
 # 运行
 ENTRYPOINT ["./.github/docker/entrypoint.sh"]

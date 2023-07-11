@@ -8,6 +8,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Component;
 import org.springframework.util.ObjectUtils;
 
+import java.nio.ByteBuffer;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -47,9 +48,14 @@ public class ComposeEventSocket {
     }
 
     @OnMessage
-    public void onMessage(Session session, String message, @PathParam(path) String token) {
-        log.info("接受消息:{}", message);
-        session.getAsyncRemote().sendText("收到收到！");
+    public void onMessage(Session session, byte[] messages, @PathParam(path) String token) {
+        log.info("接受消息:{}", messages);
+        session.getAsyncRemote().sendBinary(ByteBuffer.wrap("收到收到！".getBytes()));
     }
 
+    @OnMessage
+    public void onMessage(Session session, String messages, @PathParam(path) String token) {
+        log.info("接受消息:{}", messages);
+        session.getAsyncRemote().sendText("请使用二进制传输");
+    }
 }
