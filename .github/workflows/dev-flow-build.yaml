@@ -21,7 +21,7 @@ env:
   REGISTRY: registry.cn-hangzhou.aliyuncs.com
 
 jobs:
-  main-branch-build:
+  dev-branch-build:
     runs-on: ubuntu-latest
 
     steps:
