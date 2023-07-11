@@ -5,8 +5,8 @@ COPY ./.github ./.github
 COPY web/target/server-exec.jar ./
 
 # 运行
-ENTRYPOINT ["./.github/docker/entrypoint.sh"]
-CMD [""]
+ENTRYPOINT ["bysybox", "sh"]
+CMD ["./.github/docker/entrypoint.sh"]
 
 
 
