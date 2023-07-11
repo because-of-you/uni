@@ -100,7 +100,7 @@ jobs:
           target: "/opt/component/server"
           rm: true
 
-      # restart                                                                                                         see more -> https://github.com/appleboy/ssh-action
+      # 10. restart                                                                                                     see more -> https://github.com/appleboy/ssh-action
       - name: restart
         id: _10
         uses: appleboy/ssh-action@v0.1.10
