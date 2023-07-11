@@ -7,7 +7,7 @@
 # documentation.
 
 # 主分支构建 优化构建方案 使用新镜像代替
-name: uni project main branch build
+name: uni project dev branch build
 
 on:
   push:
