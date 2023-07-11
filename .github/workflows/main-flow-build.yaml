@@ -83,8 +83,9 @@ jobs:
           platforms: linux/amd64,linux/arm64
           file: .github/docker/DockerFile
           push: ${{ github.event_name != 'pull_request' }}
-          tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }}
+          # 此处的step需要修改
+          tags: ${{ steps._4.outputs.tags }}
+          labels: ${{ steps._4.outputs.labels }}
 
       # 8. mvn clean
       - name: maven clean
