@@ -6,7 +6,9 @@ import cn.acitrus.component.protocol.common.ComposeEvent;
 import cn.acitrus.component.protocol.common.EventFactory;
 import jakarta.annotation.Resource;
 import org.springframework.stereotype.Component;
+import org.springframework.util.ObjectUtils;
 
+import static cn.acitrus.component.protocol.common.ComponentLabel.Docker;
 import static cn.acitrus.component.protocol.common.ComposeEventAction.COLLECT_FINISHED;
 
 /**
@@ -26,6 +28,6 @@ public class DockerCoordinator implements EventCoordinator {
 
     @Override
     public boolean accept(ComposeEvent<?> event) {
-        return false;
+        return ObjectUtils.nullSafeEquals(event.getMeta().getComponentName(), Docker);
     }
 }

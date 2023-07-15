@@ -1,8 +1,8 @@
 package cn.acitrus.component.protocol.common;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 /**
@@ -11,7 +11,9 @@ import lombok.NoArgsConstructor;
  **/
 @Data
 @AllArgsConstructor
+@Builder
 @NoArgsConstructor
 public class ComposeEventMeta {
     private ComposeEventAction action;
+    private ComponentLabel componentName;
 }

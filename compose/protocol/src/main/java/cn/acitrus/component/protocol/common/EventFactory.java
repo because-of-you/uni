@@ -6,6 +6,8 @@ import cn.acitrus.component.protocol.common.body.EmptyBody;
 import cn.acitrus.component.protocol.common.body.ListContainersBody;
 import com.fasterxml.jackson.core.type.TypeReference;
 
+import static cn.acitrus.component.protocol.common.ComposeEventAction.COLLECT_FINISHED;
+
 /**
  * {@code @author:} wfy <br/>
  * {@code @date:} 2023/7/15
@@ -32,7 +34,7 @@ public class EventFactory {
         switch (eventAction) {
             case COLLECT_FINISHED -> {
                 ComposeEvent<CollectFinishedBody> event = new ComposeEvent<>();
-                event.setMeta(new ComposeEventMeta(ComposeEventAction.COLLECT_FINISHED));
+                event.setMeta(ComposeEventMeta.builder().action(COLLECT_FINISHED).build());
                 event.setBody(new CollectFinishedBody());
                 return event;
             }
