@@ -1,4 +1,4 @@
-package cn.acitrus.component.core;
+package cn.acitrus.component.core.distributor;
 
 import cn.acitrus.component.protocol.EventCoordinator;
 import cn.acitrus.component.protocol.EventDistributor;
