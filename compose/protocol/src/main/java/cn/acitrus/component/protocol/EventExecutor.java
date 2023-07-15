@@ -5,5 +5,5 @@ package cn.acitrus.component.protocol;
  * {@code @author:} wfy <br/>
  * {@code @date:} 2023/7/15
  **/
-public interface eventExecutor {
+public interface EventExecutor {
 }
