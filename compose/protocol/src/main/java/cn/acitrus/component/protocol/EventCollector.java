@@ -13,5 +13,5 @@ public interface EventCollector {
      *
      * @param event 事件
      */
-    void collect(ComposeEvent event);
+    void collect(ComposeEvent<?> event);
 }

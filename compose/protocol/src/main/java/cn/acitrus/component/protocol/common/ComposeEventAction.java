@@ -15,4 +15,19 @@ public enum ComposeEventAction {
     LIST_CONTAINERS(ListContainersBody.class),
     ;
     private final Class<? extends ComposeEventBody> actionPolicy;
+
+    public boolean isCollectionEvent() {
+        switch (this) {
+            case LIST_CONTAINERS, DEFAULT -> {
+                return true;
+            }
+            default -> {
+                return false;
+            }
+        }
+    }
+
+    public boolean isExecuteEvent() {
+        return !isCollectionEvent();
+    }
 }
