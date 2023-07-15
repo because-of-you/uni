@@ -8,7 +8,7 @@ import cn.acitrus.component.protocol.common.ComposeEvent;
  * {@code @date:} 2023/7/15
  **/
 public interface EventCoordinator {
-    boolean coordinate(ComposeEvent<?> event);
-    void coordinateCollect(ComposeEvent<?> event);
-    ComposeEvent<?> coordinateExecute(ComposeEvent<?> event);
+    ComposeEvent<?> coordinate(ComposeEvent<?> event);
+
+    boolean accept(ComposeEvent<?> event);
 }
