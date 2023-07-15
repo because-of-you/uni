@@ -1,6 +1,7 @@
 package cn.acitrus.component.protocol.common;
 
 import cn.acitrus.common.UniJsonUtil;
+import cn.acitrus.component.protocol.common.body.CollectFinishedBody;
 import cn.acitrus.component.protocol.common.body.EmptyBody;
 import cn.acitrus.component.protocol.common.body.ListContainersBody;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -25,5 +26,19 @@ public class EventFactory {
             default -> throw new RuntimeException("不能找到对应的实现类");
         }
 
+    }
+
+    public static ComposeEvent<?> createByAction(ComposeEventAction eventAction) {
+        switch (eventAction) {
+            case COLLECT_FINISHED -> {
+                ComposeEvent<CollectFinishedBody> event = new ComposeEvent<>();
+                event.setMeta(new ComposeEventMeta(ComposeEventAction.COLLECT_FINISHED));
+                event.setBody(new CollectFinishedBody());
+                return event;
+            }
+            default -> {
+                return new ComposeEvent<>();
+            }
+        }
     }
 }

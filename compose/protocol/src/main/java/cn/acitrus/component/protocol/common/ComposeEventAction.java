@@ -1,5 +1,6 @@
 package cn.acitrus.component.protocol.common;
 
+import cn.acitrus.component.protocol.common.body.CollectFinishedBody;
 import cn.acitrus.component.protocol.common.body.ListContainersBody;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -13,6 +14,7 @@ import lombok.Getter;
 public enum ComposeEventAction {
     DEFAULT(ListContainersBody.class),
     LIST_CONTAINERS(ListContainersBody.class),
+    COLLECT_FINISHED(CollectFinishedBody.class),
     ;
     private final Class<? extends ComposeEventBody> actionPolicy;
 
