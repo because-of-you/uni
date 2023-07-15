@@ -1,8 +1,7 @@
 package cn.acitrus.component.component;
 
-import cn.acitrus.common.compose.Event;
-import cn.acitrus.component.core.TaskExecutorFactory;
 import cn.acitrus.component.protocol.EventCollector;
+import cn.acitrus.component.protocol.common.ComposeEvent;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Component;
 @AllArgsConstructor
 public class InternalEventCollector implements EventCollector {
     @Override
-    public void collect(Event event) {
+    public void collect(ComposeEvent event) {
         // 内部事件采集器实现
     }
 }

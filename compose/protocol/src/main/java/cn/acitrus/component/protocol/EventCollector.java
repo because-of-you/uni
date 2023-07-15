@@ -1,6 +1,7 @@
 package cn.acitrus.component.protocol;
 
-import cn.acitrus.common.compose.Event;
+
+import cn.acitrus.component.protocol.common.ComposeEvent;
 
 /**
  * {@code @author:} wfy <br/>
@@ -12,5 +13,5 @@ public interface EventCollector {
      *
      * @param event 事件
      */
-    void collect(Event event);
+    void collect(ComposeEvent event);
 }
