@@ -13,6 +13,6 @@ import org.springframework.stereotype.Component;
 public class RepositoryCollector implements EventCollector {
     @Override
     public void collect(ComposeEvent<?> event) {
-
+        // TODO: 2023/7/15 持久化到数据库
     }
 }

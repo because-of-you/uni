@@ -6,5 +6,6 @@ package cn.acitrus.component.protocol.common;
  **/
 public enum ComponentLabel {
     Docker,
+    Zookeeper,
     ;
 }
